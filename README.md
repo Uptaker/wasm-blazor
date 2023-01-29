@@ -4,9 +4,29 @@ Blazor on Microsofti loodud veebiraamistik. See võimaldab arendajatel luua täi
 
 Blazor on väga sarnane teiste levinud ja kaasaegsete SPA (Single-Page-Application) raamistikega, nagu React, Vue ja Svelte. See võimaldab arendajatel luua komponente korduvkasutatavuse ja paindlikkuse tagamiseks, kasutades samal ajal ära WebAssembly'i kaasaegset võimsust ja potentsiaalset kiirust.
 
-## Miks Blazor? TODO
+## Miks valida Blazor?
 
-## Kiirus TODO
+Kui on valik näiteks tavalise JavaScriptil põhineva raamistiku vastu või Blazor WebAssembly, siis nende eelised on järgmised:
+
+### Blazori eelised
+
+- Täispinu (full-stack) arendus: Blazor WebAssembly võimaldab kasutada sama keelt terves projektis, mis võib viia järjepidevama ja tõhusama arendusprotsessini. **See ei kehti, kui serveripoolse loogikaks on kasutusele võetus NodeJS/Exress, Next.js, SvelteKit vms, kus peamiseks keeleks on JavaScript/TypeScript.**
+
+- Tugeva tüübisüsteemiga keel: C# on enamasti palju turvalisem arenduskeel oma tüübi süsteemi tõttu, mis võib pakkuda tugevamat veakontrolli ja paremat koodikorraldust kui JavaScript. **JavaScriptis aitab sel juhul TypeScript, kuid TypeScript-i tüübi süsteem on endiselt liigselt nõrk võrreldes C#-iga** 
+
+ - .NET-i ja C# tundmine: kui meeskond on juba tuttav .NET-i raamistikuga ja C#-ga, võib Blazor WebAssembly olla loomulikum valik, kuna see võimaldab olemasolevaid teadmisi ja oskusi kasutada. **Küll aga tööturul on tohutult palju rohkem tavaliste JS raamistike spetsialiste, millest oleksid ilma jäänud.**
+
+- Parem jõudlus: kuna Blazor WebAssembly töötab WebAssembly-ga, saab see ära kasutada brauseris omakoodi (native code) käitamisega kaasnevaid jõudluse eeliseid. **Tänapäeval see eelis ei ole veel nii tõsi, kuna WebAssembly ei saa veel DOM-i ise genereerida ning tihtipeale on ka aeglasem.**
+
+- Arvamuslik struktuur: Blazor WebAssembly järgib kindlat failistruktuuri ning kasutab Razori lehti ja Razori komponente, mis võivad olla abiks rakenduse selge struktuuri loomisel. **Arvamuslik struktuur on vajadusel leitud ka teistes JS veebiraamistikes, näiteks Angular.**
+
+### JavaScripti raamistikude eelised (nt Svelte või React vms)
+
+- See on standartne: JavaScript veebiraamistikel on suured ja aktiivsed kogukonnad - saadaval on palju ressursse, teeke ja tööriistu. Väljakujunenud on suured ja küpsed raamistikud, mis on laialdaselt kasutusele võttud. See võib hõlbustada levinud probleemidele lahenduste leidmist ja vajaduse korral abi saamist.
+
+- Tugev arendajate baas: JavaScript veebiraamistikega tegelevate arendaja kogus on kümmendkord suurem, kui C#, ning veelgi suurem spetsiifiline raamistik nagu Blazor. See võib lihtsustada vajalike oskustega arendajate leidmist.
+
+- JavaScript'i tundmine: React, Svelte, Vue vms võib olla loomulikum valik, sest see võimaldab kasutada olemasolevaid teadmisi ja oskusi.
 
 ## Võrdlus React.js-iga
 
@@ -112,7 +132,7 @@ Blazor rakenduse `Pages` kataloog on lehekülgede organiseerimiseks kasutatav ko
 
  Blazor rakenduse `Shared` kataloog on samuti konventsioon, et selles kataloogis hoitakse Razor komponente, mida jagavad mitu lehekülge või komponenti. Neid komponente kasutatakse sageli ühiste kasutajaliidese elementide, näiteks navigatsioonimenüüd või sisendelementide jaoks.
 
-## Razor Pages (.razor failid)
+## Razor lehed (.razor failid)
 
 Blazoris kasutatakse Razori komponente veebilehe kasutajaliidese määratlemiseks. Razori süntaks on C#-koodi ja HTML-märgistuse kombinatsioon, mis määratleb veebilehe konkreetse osa paigutuse ja käitumise. See võimaldab luua dünaamilisi veebilehti, mis võivad reageerida kasutaja sisendile ja kuvada andmeid andmebaasist.
 
@@ -146,4 +166,4 @@ Razorit saab kasutada ka tsüklite loomiseks, näiteks nii:
 </ul>
 ```
 
-## Uus projekt TODO
+## Uus näidisprojekt TODO
