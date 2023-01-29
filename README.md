@@ -4,6 +4,54 @@ Blazor on Microsofti loodud veebiraamistik. See võimaldab arendajatel luua täi
 
 Blazor on väga sarnane teiste levinud ja kaasaegsete SPA (Single-Page-Application) raamistikega, nagu React, Vue ja Svelte. See võimaldab arendajatel luua komponente korduvkasutatavuse ja paindlikkuse tagamiseks, kasutades samal ajal ära WebAssembly'i kaasaegset võimsust ja potentsiaalset kiirust.
 
+## Miks Blazor? TODO
+
+## Kiirus TODO
+
+## Võrdlus React.js-iga
+
+Kuna React.js on juba pikemat aega kõige populaarsem veebirakendus veebiliideste loomiseks, on õiglane seda lühidalt võrrelda Blazoriga.
+
+Blazor WebAssembly ja React on mõlemad veebirakenduste loomise raamistikud, kuid neil on mõned olulised erinevused nende toimimises ja komponentide rakendamises.
+
+Kõige suurem peamine erinevus on kasutatavad programmeerimiskeeled. Blazor WebAssembly on üles ehitatud .NET-i raamistikule ning kasutab komponentide jaoks C#-d ja Razorit, samas kui React kasutab komponentide jaoks JavaScripti ja JSX-i. Kui just ei ole kasutatud TypeScript, siis JavaScript on üldiselt nõrgem ja ohtlikum keel oma dünaamiliste tüüpide pärast.
+
+Teine erinevus on komponentide renderdamise viis. Blazoris renderdatakse komponendid kliendi poolel **WebAssembly** abil. Seevastu Reacti komponendid renderdatakse kliendi poolel **JavaScripti** abil.
+
+Lisaks kasutab React komponentide jälgimiseks ja värskendamiseks **virtuaalset DOM-i**, samas kui Blazor WebAssembly kasutab sarnast mehhanismi nimega **RenderTree**.
+
+Blazor on väga arvamuslik (opinionated) oma failistruktuuriga, samas kui React on paindlikum ja sellel pole konkreetset failistruktuuri.
+
+Süntaktiliselt nad on väga erinevad, kuid põhimõtte on väga sarnane:
+
+```csharp
+// Blazor
+<div>
+    <p>The message is: @message</p>
+</div>
+
+@code {
+    private string message = "Hello, World!";
+}
+```
+
+```jsx
+// React
+import React from 'react';
+
+function Message({message}) {
+    message = 'Hello, World!'
+
+    return (
+        <div>
+            <p>The message is: {message}</p>
+        </div>
+    );
+}
+
+export default Message;
+```
+
 # Paigaldus
 
 Näidisprojekti paigalduseks oli kasutatud JetBrains Rider IDE, kuid võimalik on kasutada ka teised IDE'd, kus Blazor on tugevalt toetatud ning on samasugune näidisprojekt, nagu näiteks Visual Studio.
@@ -96,9 +144,6 @@ Razorit saab kasutada ka tsüklite loomiseks, näiteks nii:
         <li>@item.Name</li>
     }
 </ul>
-
 ```
-
-TODO examples compared with other frameworks maybe?
 
 ## Uus projekt TODO
