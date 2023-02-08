@@ -1,8 +1,6 @@
 # Blazor
 
-TODO MS silverlight comparison (now on open standards)
-
-Blazor on Microsofti loodud veebiraamistik. See võimaldab arendajatel luua täisrakendusi (front-end ja back-end), kasutades C# keelt. See tähendab, et nii serveri infrastruktuur kui ka kliendipoolne kood on ehitatud ühes keeles ning ühendatud ühe koodibaasina. Ühtegi rida JavaScript'i ei ole vaja, sest Blazori kood on kompileeritud WebAssembly'isse.
+Blazor on Microsofti loodud veebiraamistik. See võimaldab arendajatel luua täisrakendusi (front-end ja back-end), kasutades C# keelt. See tähendab, et nii serveri infrastruktuur kui ka kliendipoolne kood on ehitatud ühes keeles ning ühendatud ühe koodibaasina. Ühtegi rida JavaScript'i ei ole vaja, sest Blazori kood on kompileeritud WebAssembly'isse [(src)](https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0).
 
 Blazor on väga sarnane teiste levinud ja kaasaegsete SPA (Single-Page-Application) raamistikega, nagu React, Vue ja Svelte. See võimaldab arendajatel luua komponente korduvkasutatavuse ja paindlikkuse tagamiseks, kasutades samal ajal ära WebAssembly'i kaasaegset võimsust ja potentsiaalset kiirust.
 
@@ -30,9 +28,11 @@ Kui on valik näiteks tavalise JavaScriptil põhineva raamistiku vastu või Blaz
 
 - JavaScript'i tundmine: React, Svelte, Vue vms võib olla loomulikum valik, sest see võimaldab kasutada olemasolevaid teadmisi ja oskusi.
 
+- Kuna Blazor tuleb koos minifitseeritud .NET käivituskeskkonnage kaasa, siis rakenduse suurus on tihtipeale kordades kõrgem, kui tavalisel JavaScript rakendusel. See tähendab, et algne laadimine võib olla aeglane.
+
 ## Võrdlus React.js-iga
 
-Kuna React.js on juba pikemat aega kõige populaarsem veebirakendus veebiliideste loomiseks, on õiglane seda lühidalt võrrelda Blazoriga.
+Kuna React.js on juba pikemat aega kõige populaarsem veebirakendus veebiliideste loomiseks [(src)](https://insights.stackoverflow.com/trends?tags=reactjs%2Cvue.js%2Cangular%2Csvelte%2Cangularjs%2Cvuejs3), on õiglane seda lühidalt võrrelda Blazoriga.
 
 Blazor WebAssembly ja React on mõlemad veebirakenduste loomise raamistikud, kuid neil on mõned olulised erinevused nende toimimises ja komponentide rakendamises.
 
@@ -40,9 +40,9 @@ Kõige suurem peamine erinevus on kasutatavad programmeerimiskeeled. Blazor WebA
 
 Teine erinevus on komponentide renderdamise viis. Blazoris renderdatakse komponendid kliendi poolel **WebAssembly** abil. Seevastu Reacti komponendid renderdatakse kliendi poolel **JavaScripti** abil.
 
-Lisaks kasutab React komponentide jälgimiseks ja värskendamiseks **virtuaalset DOM-i**, samas kui Blazor WebAssembly kasutab sarnast mehhanismi nimega **RenderTree**.
+Lisaks kasutab React komponentide jälgimiseks ja värskendamiseks **virtuaalset DOM-i**, samas kui Blazor WebAssembly kasutab sarnast mehhanismi nimega **RenderTree**. [(src)](https://blazor-university.com/components/render-trees/)
 
-Blazor on väga arvamuslik (opinionated) oma failistruktuuriga, samas kui React on paindlikum ja sellel pole konkreetset failistruktuuri.
+Vaikimisi on Blazor on väga arvamuslik (opinionated) oma failistruktuuriga, samas kui React on paindlikum ja sellel pole konkreetset failistruktuuri. See kõik on aga konfigureeritav ning ülhjuhul sõltub arendusmeeskonna kokkulepetest.
 
 Süntaktiliselt nad on väga erinevad, kuid põhimõtte on väga sarnane:
 
@@ -53,7 +53,8 @@ Süntaktiliselt nad on väga erinevad, kuid põhimõtte on väga sarnane:
 </div>
 
 @code {
-    private string message = "Hello, World!";
+    [Parameter]
+    private string message { get; set; } = "Hello, World!";
 }
 ```
 
@@ -74,9 +75,21 @@ function Message({message}) {
 export default Message;
 ```
 
+## Elukestvus ja ebakindlus
+
+Microsoft on kunagi loonud ka teisi veebiraamistike nagu Silverlight. Silverlight oli omal ajal väga populaarne ning aitas arendajatel lisada veebilehtedele dünaamilisust, animatsioone ja paremaid video esitluste võimalust - sarnane nagu Adobe Flash. Nii Flashi kui ka Silverlight kasutus arenduses vähenes, kui nende asemele tuli uus HTML5 standart [(src)](https://www.digitaltrends.com/computing/what-is-microsoft-silverlight/).
+
+Silverlighti tugi ja arendus on nüüdseks ajaks lõpetatud. [(src)](https://support.microsoft.com/en-us/windows/silverlight-end-of-support-0a3be3c7-bead-e203-2dfd-74f0a64f1788). See tekitab järgmise küsimuse - kas Blazor on lihtsalt nišš ning mis on Blazori pikaajaline perspektiiv, vaadates tema eelkäija ajalugu?
+
+Blazor on suhteliselt noor ning esimesed versioonid ilmusid aastal 2018 [(src)](https://devblogs.microsoft.com/dotnet/get-started-building-net-web-apps-in-the-browser-with-blazor/). Võrreldes näiteks Silverlightiga, siis Blazor on loodud avatud standardite põhjal nagu WebAssembly, mis ei ole ainulaadselt Microsofti kontrolli all ja on paigaldatud kõikides levinud brauserites [(src)](https://developer.mozilla.org/en-US/docs/WebAssembly). Silverlight oli aga piiratud standard ning arendada oli ainult võimalik läbi Microsoft Windowsi. Nii Silverlight kui ka Adobe vajasid kasutajapoolset installeerimist, et veebirakendused töötaksid - see tekitas ebamugavusi kasutajatele ning lisas lisaetappi rakenduse kasutamiseks.
+
+Blazori kasutab enda süntaksis Razor Pages, mis eksisteerib juba aastast 2010 ning sama formaat on üle viidud ka Blazorile. See võib viitada sellele, et Microsoft on pühendunud sarnase süsteemiga jätkama ka edaspidi.
+
+
+
 # Paigaldus
 
-Näidisprojekti paigalduseks oli kasutatud JetBrains Rider IDE, kuid võimalik on kasutada ka teised IDE'd, kus Blazor on tugevalt toetatud ning on samasugune näidisprojekt, nagu näiteks Visual Studio.
+Näidisprojekti paigalduseks oli kasutatud JetBrains Rider IDE, kuid võimalik on kasutada ka teised IDE'd, kus Blazor on tugevalt toetatud ning uue projektina ilmub samasugune näidisprojekt, nagu Visual Studios.
 
 ## 1. Paigalda .NET 7+
 
@@ -86,7 +99,9 @@ Uuemad .NET versioonid toetavad arendust nii Mac kui ka Linux süsteemidele.
 
 ## 2. Paigalga Rider või Visual Studio
 
-Rider on väga hea JetBrains'i poolt loodud C# IDE, mis toetab ka erinevad Linux distributsioone.
+Microsoft soovitab Blazori arenduseks kasutada Visual Studio.
+
+Linuxi ja Maci kasutajate jaoks on võimalik kasutada JetBrains Rider, mis on võimas arenduse IDE.
 
 ## 3. Kompileeri & käivita
 
@@ -168,4 +183,19 @@ Razorit saab kasutada ka tsüklite loomiseks, näiteks nii:
 </ul>
 ```
 
-## Uus näidisprojekt TODO
+Loe rohkem: 
+- https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0
+- https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-7.0
+
+## Näidisprojekt
+
+`example` kataloogis asub lihtne näidisprojekt, mis ühendab nii serveri kui ka front-end koodibaasi üheks. Läbi selle saab aimu Blazori rakenduse struktuurist (juhul kui API pool on samas projektis) ning üldehitusest.
+
+Näidisprojekt sisaldab:
+- Blazori kasutamine näided ja koodijuppid
+- Kuidas jagada sama koodibaasi (nt jagatud tüübid/klassid)
+- Kuidas teha lihtsad CRUD (Create, Read, Update, Delete) operatsioone
+- Erinevad Razor komponentide näited
+- JavaScript funktsioonide väljakutsumine läbi C#.
+
+Terve hulk näiteid on saadaval ka läbi [awesome-blazor](https://github.com/AdrienTorris/awesome-blazor#real-world-applications) GitHub repositooriumist.
