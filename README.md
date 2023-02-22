@@ -211,33 +211,36 @@ Sellise algoritmi üheks näiteks on Fibonacci jadageneraator. Fibonacci jadagen
 Algoritmi sisendnumbriks on miljon.
 
 ### Chrome
-Keel    C#
-1.      59
-2.      142
-3.      81
-4.      82
-5.      82
-6.      142
-7.      141
-8.      90
-9.      142
-10.     92
-Kesk.   105.3
+|Keel    |C#    |
+|--------|------|
+|1.      |59    |
+|2.      |142   |
+|3.      |81    |
+|4.      |82    |
+|5.      |82    |
+|6.      |142   |
+|7.      |141   |
+|8.      |90    |
+|9.      |142   |
+|10.     |92    |
+|Kesk.   |105.3 |
 
 *mõõdetud millisekundites*
 
 ### Firefox
-Keel    C#
-1.      20
-2.      19
-3.      36
-4.      34
-5.      36
-6.      19
-7.      35
-8.      24
-9.      31
-10.     33
-Kesk.   28.7
+
+|Keel    |C#    |
+|--------|------|
+|1.      |20    |
+|2.      |19    |
+|3.      |36    |
+|4.      |34    |
+|5.      |36    |
+|6.      |19    |
+|7.      |35    |
+|8.      |24    |
+|9.      |31    |
+|10.     |33    |
+|Kesk.   |28.7  |
 
 JavaScripti tulemusi saab leida analoogsel C++ ja Rust jõudlustestil
