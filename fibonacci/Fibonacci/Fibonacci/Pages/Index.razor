@@ -1,9 +1,13 @@
 ﻿@page "/"
 @using System.Diagnostics
 
-<h1>Hello, world!</h1>
+<h1>Fibonacci</h1>
+
+<div>Blazor: @blazorTime</div>
 
 @code {
+
+  public string blazorTime = "Loading...";
   
   protected override void OnParametersSet() {
     
@@ -11,7 +15,7 @@
     stopwatch.Start();
     ulong result = Fibonacci(1000000);
     stopwatch.Stop();
-    
+    blazorTime = "" + stopwatch.ElapsedMilliseconds;
     Console.WriteLine(result);
     Console.WriteLine("C# ended in " + stopwatch.ElapsedMilliseconds + " ms");
   }

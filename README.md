@@ -243,4 +243,20 @@ Algoritmi sisendnumbriks on miljon.
 |10.     |33    |
 |Kesk.   |28.7  |
 
+### Edge
+|Keel    |C#    |
+|--------|------|
+|1.      |71    |
+|2.      |130   |
+|3.      |94    |
+|4.      |127    |
+|5.      |87    |
+|6.      |84   |
+|7.      |87   |
+|8.      |88    |
+|9.      |90   |
+|10.     |85    |
+|Kesk.   |94.3 |
+
+
 JavaScripti tulemusi saab leida analoogsel C++ ja Rust jõudlustestil
