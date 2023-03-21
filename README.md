@@ -12,7 +12,7 @@ Kui on valik näiteks tavalise JavaScriptil põhineva raamistiku vastu või Blaz
 
 - Täispinu (full-stack) arendus: Blazor WebAssembly võimaldab kasutada sama keelt terves projektis, mis võib viia järjepidevama ja tõhusama arendusprotsessini. **See ei kehti, kui serveripoolse loogikaks on kasutusele võetus NodeJS/Exress, Next.js, SvelteKit vms, kus peamiseks keeleks on JavaScript/TypeScript.**
 
-- Tugeva tüübisüsteemiga keel: C# on enamasti palju turvalisem arenduskeel oma tüübi süsteemi tõttu, mis võib pakkuda tugevamat veakontrolli ja paremat koodikorraldust kui JavaScript. **JavaScriptis aitab sel juhul TypeScript, kuid TypeScript-i tüübi süsteem on endiselt liigselt nõrk võrreldes C#-iga** 
+- Tugeva tüübisüsteemiga keel: Kui võrrelda JavaScripiga, siis C# on enamasti palju turvalisem arenduskeel oma tüübi süsteemi tõttu. Tugev tüübisüsteem ei lase arendajal kompileerida koodi vigaste tüüpidega. **JavaScriptis aitab sel juhul TypeScript, kuid TypeScript-i tüübi süsteem on endiselt liigselt nõrk võrreldes C#-iga** 
 
  - .NET-i ja C# tundmine: kui meeskond on juba tuttav .NET-i raamistikuga ja C#-ga, võib Blazor WebAssembly olla loomulikum valik, kuna see võimaldab olemasolevaid teadmisi ja oskusi kasutada. **Küll aga tööturul on tohutult palju rohkem tavaliste JS raamistike spetsialiste, millest oleksid ilma jäänud.**
 
@@ -38,11 +38,9 @@ Blazor WebAssembly ja React on mõlemad veebirakenduste loomise raamistikud, kui
 
 Kõige suurem peamine erinevus on kasutatavad programmeerimiskeeled. Blazor WebAssembly on üles ehitatud .NET-i raamistikule ning kasutab komponentide jaoks C#-d ja Razorit, samas kui React kasutab komponentide jaoks JavaScripti ja JSX-i. Kui just ei ole kasutatud TypeScript, siis JavaScript on üldiselt nõrgem ja ohtlikum keel oma dünaamiliste tüüpide pärast.
 
-Teine erinevus on komponentide renderdamise viis. Blazoris renderdatakse komponendid kliendi poolel **WebAssembly** abil. Seevastu Reacti komponendid renderdatakse kliendi poolel **JavaScripti** abil.
-
 Lisaks kasutab React komponentide jälgimiseks ja värskendamiseks **virtuaalset DOM-i**, samas kui Blazor WebAssembly kasutab sarnast mehhanismi nimega **RenderTree**. [(src)](https://blazor-university.com/components/render-trees/)
 
-Vaikimisi on Blazor on väga arvamuslik (opinionated) oma failistruktuuriga, samas kui React on paindlikum ja sellel pole konkreetset failistruktuuri. See kõik on aga konfigureeritav ning ülhjuhul sõltub arendusmeeskonna kokkulepetest.
+Vaikimisi Blazor on väga arvamuslik (opinionated) oma failistruktuuriga, samas kui React on paindlikum ja sellel pole konkreetset failistruktuuri. See kõik on aga konfigureeritav ning ülhjuhul sõltub arendusmeeskonna kokkulepetest.
 
 Süntaktiliselt nad on väga erinevad, kuid põhimõtte on väga sarnane:
 
@@ -189,7 +187,7 @@ Loe rohkem:
 
 ## Näidisprojekt
 
-`example` kataloogis asub lihtne näidisprojekt, mis ühendab nii serveri kui ka front-end koodibaasi üheks. Läbi selle saab aimu Blazori rakenduse struktuurist (juhul kui API pool on samas projektis) ning üldehitusest.
+`example` kataloog on moodulrepositoorium, kus asub lihtne näidisprojekt. Näidisprojekt ühendab nii serveri kui ka front-end koodibaasi üheks. Läbi selle saab aimu Blazori rakenduse struktuurist (juhul kui API pool on samas projektis) ning üldehitusest.
 
 Näidisprojekt sisaldab:
 - Blazori kasutamine näided ja koodijuppid
@@ -199,64 +197,3 @@ Näidisprojekt sisaldab:
 - JavaScript funktsioonide väljakutsumine läbi C#.
 
 Terve hulk näiteid on saadaval ka läbi [awesome-blazor](https://github.com/AdrienTorris/awesome-blazor#real-world-applications) GitHub repositooriumist.
-
-# Lihtne jõudlustest
-
-## Fibonacci numbrid
-
-Hea võrdlusalgoritm jõudluse võrdlemiseks peaks olema protsessoriga seotud ja hõlmama intensiivseid arvutusi. See võimaldab  kahe keele jõudlust võrrelda ilma muude segavate teguriteta, nagu sisend/väljund (I/O) või võrgu latentsus (latency).
-
-Sellise algoritmi üheks näiteks on Fibonacci jadageneraator. Fibonacci jadageneraator hõlmab intensiivseid arvutusi, mistõttu on see hea kandidaat jõudluse võrdluseks.
-
-Algoritmi sisendnumbriks on miljon.
-
-### Chrome
-|Keel    |C#    |
-|--------|------|
-|1.      |59    |
-|2.      |142   |
-|3.      |81    |
-|4.      |82    |
-|5.      |82    |
-|6.      |142   |
-|7.      |141   |
-|8.      |90    |
-|9.      |142   |
-|10.     |92    |
-|Kesk.   |105.3 |
-
-*mõõdetud millisekundites*
-
-### Firefox
-
-|Keel    |C#    |
-|--------|------|
-|1.      |20    |
-|2.      |19    |
-|3.      |36    |
-|4.      |34    |
-|5.      |36    |
-|6.      |19    |
-|7.      |35    |
-|8.      |24    |
-|9.      |31    |
-|10.     |33    |
-|Kesk.   |28.7  |
-
-### Edge
-|Keel    |C#    |
-|--------|------|
-|1.      |71    |
-|2.      |130   |
-|3.      |94    |
-|4.      |127    |
-|5.      |87    |
-|6.      |84   |
-|7.      |87   |
-|8.      |88    |
-|9.      |90   |
-|10.     |85    |
-|Kesk.   |94.3 |
-
-
-JavaScripti tulemusi saab leida analoogsel C++ ja Rust jõudlustestil
