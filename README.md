@@ -185,9 +185,21 @@ Loe rohkem:
 - https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0
 - https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-7.0
 
+## Valmis projekti optimeerimine
+
+Kui projekt on valmis, selle saab kompileerida optimeeritud kujul järgmiselt:
+
+```bash
+dotnet build -c Release
+dotnet publish -c Release
+```
+
+Projekt on nüüd optimeeritud selleks, et elada veebis - rakendatud on kiiruse ja faili suuruse optimisatsioonid.
+
+
 ## Näidisprojekt
 
-`example` kataloog on moodulrepositoorium, kus asub lihtne näidisprojekt. Näidisprojekt ühendab nii serveri kui ka front-end koodibaasi üheks. Läbi selle saab aimu Blazori rakenduse struktuurist (juhul kui API pool on samas projektis) ning üldehitusest.
+    `example` kataloogis on selle õpetuse raames valminud moodulrepositoorium, kus asub lihtne näidisprojekt. Näidisprojekt ühendab nii serveri kui ka front-end koodibaasi üheks. Läbi selle saab aimu Blazori rakenduse struktuurist (juhul, kui API pool on samas projektis) ning üldehitusest.
 
 Näidisprojekt sisaldab:
 - Blazori kasutamine näided ja koodijuppid
