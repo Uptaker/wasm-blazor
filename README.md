@@ -10,7 +10,7 @@ Kui on valik näiteks tavalise JavaScriptil põhineva raamistiku vastu või Blaz
 
 ### Blazori eelised
 
-- Täispinu (full-stack) arendus: Blazor WebAssembly võimaldab kasutada sama keelt terves projektis, mis võib viia järjepidevama ja tõhusama arendusprotsessini. **See ei kehti, kui serveripoolse loogikaks on kasutusele võetus NodeJS/Exress, Next.js, SvelteKit vms, kus peamiseks keeleks on JavaScript/TypeScript.**
+- Täispinu (full-stack) arendus: Blazor WebAssembly võimaldab kasutada sama keelt terves projektis, mis võib viia järjepidevama ja tõhusama arendusprotsessini. **See ei kehti, kui serveripoolse loogikaks on kasutusele võetus NodeJS/Express, Next.js, SvelteKit vms, kus peamiseks keeleks on JavaScript/TypeScript.**
 
 - Tugeva tüübisüsteemiga keel: Kui võrrelda JavaScripiga, siis C# on enamasti palju turvalisem arenduskeel oma tüübi süsteemi tõttu. Tugev tüübisüsteem ei lase arendajal kompileerida koodi vigaste tüüpidega. **JavaScriptis aitab sel juhul TypeScript, kuid TypeScript-i tüübi süsteem on endiselt liigselt nõrk võrreldes C#-iga** 
 
